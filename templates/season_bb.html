@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Document</title>
+     <title>T1-IIC3103</title>
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark">
@@ -16,8 +16,7 @@
       <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Submit">
     </form>
   </nav>
-    <strong>Breaking Bad</strong><br>
-    <strong>Temporada {{season}}</strong><br>
+    <strong>Breaking Bad - Temporada {{season}}</strong><br>
     {% for episode in episodes %}
         {% if episode.season == season %}
         <li class="list-group-item"><a href="{% url 'episode_bb' episode.episode_id%}">{{episode.title}}</a></li>

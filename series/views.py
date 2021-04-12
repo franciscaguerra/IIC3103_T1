@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import Template, Context
 import requests
 from django.shortcuts import render
+import datetime
 
 
 def home(request):
@@ -31,11 +32,15 @@ def season_bb(request, season):
 def episode_bcs(request, episode_id):
     url = 'https://tarea-1-breaking-bad.herokuapp.com/api/episodes/%s' % episode_id
     episode = requests.get(url).json()[0]
+    episode["air_date"] = episode["air_date"][0:10]
+    episode["air_date"] = datetime.datetime.strptime(episode["air_date"], '%Y-%m-%d').date()
     return render (request, 'episode_bcs.html', {"episode": episode})
 
 def episode_bb(request, episode_id):
     url = 'https://tarea-1-breaking-bad.herokuapp.com/api/episodes/%s' % episode_id
     episode = requests.get(url).json()[0]
+    episode["air_date"] = episode["air_date"][0:10]
+    episode["air_date"] = datetime.datetime.strptime(episode["air_date"], '%Y-%m-%d').date()
     return render (request, 'episode_bb.html', {"episode": episode})
 
 def character(request, name):
