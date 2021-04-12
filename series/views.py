@@ -26,7 +26,7 @@ def season(request, season):
 def season_bb(request, season):
     episodes = requests.get("https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Breaking+Bad").json()
     season = str(season)
-    return render(request, 'season.html', {'episodes': episodes, 'season': season})
+    return render(request, 'season_bb.html', {'episodes': episodes, 'season': season})
 
 def episode_bcs(request, episode_id):
     url = 'https://tarea-1-breaking-bad.herokuapp.com/api/episodes/%s' % episode_id
